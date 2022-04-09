@@ -20,9 +20,9 @@ entertainments = ['visiting a temple', 'going to a cat cafe', 'going to a game c
 restaurants = ['MOS Burger', 'Inari Steak', 'Coco Curry Ichibanya', 'Hamazushi', '7-11']
 
 import random
-final_destination = 'n'
 
-def select_random_destination(final_destination):
+def select_random_destination():
+    final_destination = 'n'
     print('Welcome to Japan! If you are not sure what you want to do for vacation, no worries.')
     destination_max = len(destinations) - 1
     while final_destination == 'n':
@@ -30,67 +30,73 @@ def select_random_destination(final_destination):
         destination = destinations[destination_index]
         final_destination = input(f'We have selected {destination} for your destination. Does this sound good? Enter y/n: ')
     print('Great, glad that is decided. Moving on.')
+    return destination
 
-select_random_destination(final_destination)
+# select_random_destination()
 
-print('')
-final_transportation = 'n'
-
-def select_random_transportation(final_transportation):
+def select_random_transportation():
+    final_transportation = 'n'
     transportation_max = len(transportations) - 1
     while final_transportation == 'n':
         transportation_index = random.randint(0, transportation_max)
         transportation = transportations[transportation_index]
         final_transportation = input(f'We have selected {transportation} as your mode of transportation. Does this sound good? Enter y/n: ')
     print('Great, glad that is decided. Moving on.')
+    return transportation
     
-select_random_transportation(final_transportation)
+# select_random_transportation()
 
 print('')
-final_entertainment = 'n'
 
-def select_random_entertainment(final_entertainment):
+def select_random_entertainment():
+    final_entertainment = 'n'
     entertainment_max = len(entertainments) - 1
     while final_entertainment == 'n':
         entertainment_index = random.randint(0, entertainment_max)
         entertainment = entertainments[entertainment_index]
         final_entertainment = input(f'We have selected {entertainment} for you to do this afternoon. Does this sound good? Enter y/n: ')
     print('Great, that is a lovely choice. Moving on.')
+    return entertainment
 
-select_random_entertainment(final_entertainment)
+# select_random_entertainment()
 
 print('')
-final_restaurant = 'n'
 
-def select_random_restaurant(final_restaurant):
+def select_random_restaurant():
+    final_restaurant = 'n'
     restaurant_max = len(restaurants) - 1
     while final_restaurant == 'n':
         restaurant_index = random.randint(0, restaurant_max)
         restaurant = restaurants[restaurant_index]
         final_restaurant = input(f'We have selected {restaurant} for as your dining option. Does this sound good? Enter y/n: ')
     print('Great, that is some yummy food. Moving on.')
+    return restaurant
 
-select_random_restaurant(final_restaurant)
+# select_random_restaurant()
 
-print('')
-print('Congrats! Your random Japan trip has been decided. Please just make sure that this is what you wanted.')
-print('Your trip looks like: ')
 
 def create_trip():
-    print(f'Destination: {final_destination}')
-    print(f'Transportation: {final_transportation}')
-    print(f'Restaurant: {final_restaurant}')
-    print(f'Entertainment: {final_entertainment}')
-
-create_trip()
+    destination = select_random_destination()
+    transportation = select_random_transportation()
+    restaurant = select_random_restaurant()
+    entertainment = select_random_entertainment()
+    print('Congrats! Your random Japan trip has been decided. Please just make sure that this is what you wanted.')
+    print('Your trip looks like: ')
+    print(f'Destination: {destination}')
+    print(f'Transportation: {transportation}')
+    print(f'Restaurant: {restaurant}')
+    print(f'Entertainment: {entertainment}')
+    return [destination, transportation, restaurant, entertainment]
 
 print('')
-trip_finalize = 'n'
 
-def your_final_trip(trip_finalize):
+def your_final_trip():
+    trip_finalize = 'n'
+    final_list = []
     while trip_finalize == 'n':
+        final_list = create_trip()
         trip_finalize = input('Would you like to finalize this trip? Enter y/n: ')
-    print(f'Welcome to Japan! You will be arriving in {final_destination} by {final_transportation}, and during the afternoon you will be {final_entertainment} before dining at {final_restaurant} for the evening. Enjoy!')
+    print(f'Welcome to Japan! You will be arriving in {final_list[0]} by {final_list[1]}, and during the afternoon you will be {final_list[2]} before dining at {final_list[3]} for the evening. Enjoy!')
 
-your_final_trip(trip_finalize)
+your_final_trip()
 
