@@ -76,4 +76,21 @@ print('')
 print('Congrats! Your random Japan trip has been decided. Please just make sure that this is what you wanted.')
 print('Your trip looks like: ')
 
-# def create_trip():
+def create_trip():
+    print(f'Destination: {final_destination}')
+    print(f'Transportation: {final_transportation}')
+    print(f'Restaurant: {final_restaurant}')
+    print(f'Entertainment: {final_entertainment}')
+
+create_trip()
+
+print('')
+trip_finalize = 'n'
+
+def your_final_trip(trip_finalize):
+    while trip_finalize == 'n':
+        trip_finalize = input('Would you like to finalize this trip? Enter y/n: ')
+    print(f'Welcome to Japan! You will be arriving in {final_destination} by {final_transportation}, and during the afternoon you will be {final_entertainment} before dining at {final_restaurant} for the evening. Enjoy!')
+
+your_final_trip(trip_finalize)
+
