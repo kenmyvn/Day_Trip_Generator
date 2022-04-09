@@ -12,3 +12,9 @@
 # (10 points): As a user, I want to be able to confirm that my day trip is “complete” once I like all of the random selections.
 # (10 points): As a user, I want to display my completed trip in the console.
 # (5 points): As a developer, I want all of my functions to have a Single Responsibility. Remember, each function should do just one thing!
+
+
+destinations = ['Tokyo', 'Osaka', 'Kyoto', 'Sendai', 'Gunma', 'Hokkaido']
+transportations = ['high-speed train', 'local train', 'plane', 'car', 'Mario Go-Kart']
+entertainments = ['visiting a temple', 'going to a cat cafe', 'going to a game center', 'participating in a tea ceremony', 'climbing a mountain']
+restaurants = ['MOS Burger', 'Inari Steak', 'Coco Curry Ichibanya', 'Hamazushi', '7-11']
